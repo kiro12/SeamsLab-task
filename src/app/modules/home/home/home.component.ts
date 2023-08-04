@@ -42,10 +42,7 @@ export class HomeComponent implements OnInit{
       this.homeService.getProductsByCategory(this.selectedCategory).subscribe((products: any) => {
         this.products = products
         this.filterProducts = [...products]
-
-        if(this.selectedSort === 'price'){
-          this.sortProducts()
-        }
+        this.getSortedList()
 
         this.loadingProducts = false
       });
@@ -53,16 +50,22 @@ export class HomeComponent implements OnInit{
       this.homeService.getAllProducts().subscribe((products: any[]) => {
         this.products = products
         this.filterProducts = [...products]
-
-        if(this.selectedSort === 'price'){
-          this.sortProducts()
-        }
+       this.getSortedList()
 
         this.loadingProducts = false
 
       })
     }
 
+  }
+  getSortedList() {
+    if(this.selectedSort === 'price'){
+      this.sortProducts()
+    }
+    if (this.selectedPrice !== 'all') {
+      this.filterByPrice(this.selectedPrice)
+
+    }
   }
 
   filterByPrice(price: any) {

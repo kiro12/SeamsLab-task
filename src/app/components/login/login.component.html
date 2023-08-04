@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-md-6">
+
+  <div class="bg-image">
+
+  </div>
+</div>
+
+  <div class="col-6 d-flex align-items-center justify-content-center">
+
+  <form  [formGroup]="loginForm">
+    <h2 class="d-flex justify-content-center align-items-center" style="color:black" routerLink="/">
+      <img class="mx-2" style="width: 30px;" src="assets/images/header-logo.jpg" alt="">Seams Labs</h2>
+
+    <label >Username*</label>
+      <div class="input-container">
+        <input  type="text" name="username" placeholder="Username here ...." formControlName="username">
+
+      </div>
+    <label >password*</label>
+      <div class="input-container">
+      <input  type="password" name="password" placeholder="Password" formControlName="password" >
+      </div>
+    <button mat-raised-button color="primary" type="submit" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+</form>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="product-card"  >
+  <div [@enter]="true" class="img-container" routerLink="/product/{{product.id}}">
+    <img  [src]="product.image" alt="{{ product?.title }}" >
+
+  </div>
+  <div class="product-body mt-2">
+    <h5 class="title" [matTooltip]="product?.title">{{ product?.title }}</h5>
+      <p class="price">{{ product.price | currency }}</p>
+      <p class="description" [matTooltip]="product?.title">  {{product?.description}}</p>
+    <div [matTooltip]="product.rating.count" class="d-flex ">
+      <bar-rating class="star"  [(rate)]="product.rating.rate" [max]="5"></bar-rating>
+      <p class="description mx-2">{{product.rating.rate}}</p>
+    </div>
+  </div>
+
+</div>

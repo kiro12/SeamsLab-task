@@ -1,0 +1,77 @@
+
+<div class="row p-2">
+  <div class="col-lg-3">
+    <h2 class="d-flex align-items-center">    <img class="mx-2" style="width: 30px;" src="assets/images/header-logo.jpg" alt="">Seams Labs</h2>
+  </div>
+  <div class="col-lg-6">
+    <div class="input-container">
+      <input  type="text" placeholder="search here ...."  [(ngModel)]="searchValue">
+
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <button  class="btn  new_button mx-2" type="submit" (click)="logout()" *ngIf="(globalService.isLoggedIn | async)">Logout</button>
+    <button  class="btn  new_button mx-2" type="submit" routerLink="/login" *ngIf="!(globalService.isLoggedIn | async)">Sign In</button>
+    <button  class="btn  new_button position-relative" type="submit">My cart
+    <span class="cart-count">{{ globalService.cartCount | async}}</span>
+    </button>
+
+  </div>
+</div>
+
+<div class="container my-3">
+
+
+  <div class="products-container">
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="second-container p-2 py-3" >
+            <h5>Category</h5>
+            <mat-radio-group class="d-flex flex-column" [(ngModel)]="selectedCategory" (ngModelChange)="changeCategory()" >
+              <mat-radio-button  [value]="'all'">All</mat-radio-button>
+              <mat-radio-button *ngFor="let category of categories" [value]="category">{{category}}</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+          <div class="second-container mt-3 p-2 py-3" >
+            <h5>Expanded Filters</h5>
+            <mat-radio-group class="d-flex flex-column" [(ngModel)]="selectedPrice" (ngModelChange)="filterByPrice($event)" >
+              <mat-radio-button  [value]="'all'">All</mat-radio-button>
+              <mat-radio-button *ngFor="let price of prices" [value]="price">{{price.minPrice}} > {{price.maxPrice}}</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+        </div>
+        <div class="col-md-9">
+          <ng-container *ngIf="!loadingProducts ; else loadingIndicator">
+
+          <div class="filters-container">
+<!--            <h3>{{selectedCategory | uppercase}}</h3>-->
+          </div>
+          <div class="position-relative">
+          <span class="sort">Sort By</span>
+          <mat-select class="" [(ngModel)]="selectedSort" (ngModelChange)="sortProducts()">
+            <mat-option [value]="''">All</mat-option>
+            <mat-option [value]="'price'">Price</mat-option>
+          </mat-select>
+          </div>
+          <div class="row">
+            <app-product-card class=" col-md-3  col-6 "  *ngFor="let product of products | appFilter:searchValue" [product]="product"></app-product-card>
+
+          </div>
+          </ng-container>
+
+        </div>
+
+      </div>
+
+  </div>
+  <ng-template #loadingIndicator>
+    <div class="d-flex justify-content-center mt-5">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+
+</div>

@@ -1,0 +1,154 @@
+h1{
+  font-size: 24px;
+  font-weight: bold;
+}
+h3{
+  font-weight: bold;
+  margin-bottom: 0!important;
+
+}
+.product-bg{
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  background: #E3E5FA;
+  height: 100vh;
+  overflow: hidden;
+
+  .image-container{
+    width: 300px;
+    margin: auto;
+    transform: rotate(-11.422deg);
+    &.default{
+      width: 200px;
+    }
+    &.small{
+      width: 150px;
+    }
+
+  }
+  @media screen and (max-width: 992px) {
+    height: 400px;
+    .image-container{
+      width: 150px;
+      margin: auto;
+
+      transform: rotate(-11.422deg);
+      &.default{
+        width: 100px;
+      }
+      &.small{
+        width: 50px;
+      }
+
+    }
+  }
+}
+.product-container{
+  background-color: #e4e1e1;
+  padding: 40px 0 ;
+  display: flex;
+  justify-content: center;
+
+.product-details{
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+
+}
+.mat-button-toggle-group{
+  border: none!important;
+  display: flex;
+  align-items: center;
+
+
+}
+.mat-button-toggle{
+  background-color: #e4e1e1;
+
+  margin: 0 10px;
+  width: fit-content;
+  height: fit-content;
+  border: unset!important;
+  border-radius: 10px;
+  padding: 5px;
+  .large{
+    max-width: 50px;
+  }
+  .default{
+    max-width: 45px;
+
+  }
+  .small{
+    max-width: 40px;
+  }
+}
+.mat-button-toggle-checked{
+  background-color: white!important;
+  border: 5px solid rgba(129, 138, 249, 0.12) !important;
+
+}
+}
+.cart-container{
+  position: absolute;
+  bottom: 30px;
+  //height: 100px;
+  background-color: white;
+  margin: auto;
+  right: 50px;
+  left: 50px;
+  border-radius: 12px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 50px;
+  }
+  .counter{
+    border-radius: 8px;
+    border: 1px solid #E3E5FA;
+    color: #a2a2a4;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    @extend .flex-row;
+  }
+  .count{
+    border: 1px solid #828EF9;
+    color: #828EF9;
+    width: 30px;
+    height: 30px;
+    @extend .flex-row;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+  @media screen and (max-width: 992px) {
+   position: relative!important;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+.category{
+  color: #50CC98;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.flex-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h4{
+  cursor: pointer;
+}
+::ng-deep {
+  .success-snackbar {
+    .mat-mdc-snack-bar-action {
+      color: #0cc20c !important;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+
+  .product-card{
+    margin: 10px 0;
+    .img-container{
+      height: 250px;
+      cursor: pointer;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .product-body{
+      .title{
+        font-size: 16px;
+        display: -webkit-box;
+        max-width: 194px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 38px;
+      }
+      .description{
+        @extend .title;
+        opacity: 0.7;
+      }
+      .price{
+        color: #000000;
+        font-weight: bold;
+        margin: 10px 0!important;
+        font-size: 22px;
+
+      }
+      .stars {
+        width: 100px;
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+
